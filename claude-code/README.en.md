@@ -82,7 +82,7 @@ Ask Claude Code to perform a task. Claude will call speak according to the Skill
 |-------|--------|
 | SessionStart | Health check + source registration |
 | PreToolUse (speak) | Auto-inject source |
-| Stop | Beep notification (via MCP JSON-RPC) |
+| Stop | Beep + last message read-aloud (via MCP JSON-RPC) |
 
 ## Uninstall
 

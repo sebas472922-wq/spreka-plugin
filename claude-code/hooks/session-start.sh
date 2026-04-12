@@ -9,7 +9,6 @@ fi
 
 INPUT=$(cat)
 SESSION_ID=$(echo "$INPUT" | jq -r '.session_id // ""')
-TRANSCRIPT_PATH=$(echo "$INPUT" | jq -r '.transcript_path // ""')
 SOURCE="$(hostname)-${SESSION_ID:0:8}"
 
 # Resolve spreka server URL.
@@ -30,8 +29,3 @@ curl -s -X POST "$SPREKA_URL/register-hook" \
   -H 'Content-Type: application/json' \
   -d "$JSON_PAYLOAD" \
   > /dev/null 2>&1
-
-# Save transcript_path for the Stop hook.
-if [ -n "$TRANSCRIPT_PATH" ]; then
-  echo "$TRANSCRIPT_PATH" > "/tmp/spreka-transcript-${SOURCE}"
-fi
