@@ -37,3 +37,4 @@ spreka server
 Default: `http://localhost:9100`. See each agent's docs for details.
 
 ## Powered by VOICEVOX Nemo
+
