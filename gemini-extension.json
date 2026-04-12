@@ -1,6 +1,6 @@
 {
   "name": "spreka",
-  "version": "0.7.15",
+  "version": "0.7.16",
   "description": "AIエージェントの出力をリアルタイム音声読み上げ。ターミナルをオペレーションセンターに。",
   "mcpServers": {
     "spreka": {
