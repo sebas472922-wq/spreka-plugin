@@ -12,12 +12,16 @@ SESSION_ID=$(echo "$INPUT" | jq -r '.session_id // ""')
 TRANSCRIPT_PATH=$(echo "$INPUT" | jq -r '.transcript_path // ""')
 SOURCE="$(hostname)-${SESSION_ID:0:8}"
 
-# Resolve spreka server URL from .mcp.json or fall back to default.
+# Resolve spreka server URL.
+# Priority: ~/.claude.json (user scope) > plugin .mcp.json > SPREKA_URL env > default
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 PLUGIN_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
-MCP_URL=$(jq -r '.mcpServers.spreka.url // ""' "$PLUGIN_ROOT/.mcp.json" 2>/dev/null)
-if [ -n "$MCP_URL" ]; then
-  SPREKA_URL="${MCP_URL%/mcp}"
+USER_MCP_URL=$(jq -r '.mcpServers.spreka.url // ""' ~/.claude.json 2>/dev/null)
+PLUGIN_MCP_URL=$(jq -r '.mcpServers.spreka.url // ""' "$PLUGIN_ROOT/.mcp.json" 2>/dev/null)
+if [ -n "$USER_MCP_URL" ]; then
+  SPREKA_URL="${USER_MCP_URL%/mcp}"
+elif [ -n "$PLUGIN_MCP_URL" ]; then
+  SPREKA_URL="${PLUGIN_MCP_URL%/mcp}"
 else
   SPREKA_URL="${SPREKA_URL:-http://localhost:9100}"
 fi
