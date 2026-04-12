@@ -1,0 +1,9 @@
+{
+  "name": "spreka",
+  "plugins": [
+    {
+      "name": "spreka",
+      "source": "./"
+    }
+  ]
+}
