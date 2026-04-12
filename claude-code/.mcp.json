@@ -2,7 +2,7 @@
   "mcpServers": {
     "spreka": {
       "type": "http",
-      "url": "${user_config.server_url}/mcp"
+      "url": "http://localhost:9100/mcp"
     }
   }
 }
