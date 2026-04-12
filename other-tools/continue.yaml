@@ -1,0 +1,4 @@
+mcpServers:
+  - name: spreka
+    type: streamable-http
+    url: http://localhost:9100/mcp

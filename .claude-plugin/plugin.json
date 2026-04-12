@@ -1,0 +1,11 @@
+{
+  "name": "spreka",
+  "description": "AIエージェントの出力をリアルタイム音声読み上げ。ターミナルをオペレーションセンターに。",
+  "version": "0.7.15",
+  "author": {
+    "name": "spreka"
+  },
+  "skills": "./claude-code/skills/",
+  "hooks": "./claude-code/hooks/hooks.json",
+  "mcpServers": "./claude-code/.mcp.json"
+}

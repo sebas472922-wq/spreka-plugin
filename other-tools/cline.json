@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "spreka": {
+      "type": "streamableHttp",
+      "url": "http://localhost:9100/mcp",
+      "disabled": false
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash ${CODEX_PLUGIN_ROOT}/codex/hooks/session-start.sh"
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "mcp__spreka__speak",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash ${CODEX_PLUGIN_ROOT}/codex/hooks/pre-speak.sh"
+          }
+        ]
+      }
+    ]
+  }
+}

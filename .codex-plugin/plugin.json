@@ -1,0 +1,11 @@
+{
+  "name": "spreka",
+  "description": "AIエージェントの出力をリアルタイム音声読み上げ。ターミナルをオペレーションセンターに。",
+  "version": "0.7.15",
+  "author": {
+    "name": "spreka"
+  },
+  "skills": "./codex/skills/",
+  "hooks": "./codex/hooks/hooks.json",
+  "mcpServers": "./codex/.mcp.json"
+}

@@ -1,0 +1,55 @@
+# Spreka for Codex CLI
+
+## インストール
+
+```bash
+# プラグインとしてインストール（プラグイン機能が有効な場合）
+/plugins install spreka
+
+# または手動セットアップ:
+# 1. config.toml でフック機能を有効化
+# [features]
+# codex_hooks = true
+#
+# 2. MCP接続を設定（config.toml）
+# [mcp_servers.spreka]
+# url = "http://localhost:9100/mcp"
+#
+# 3. hooks.json を ~/.codex/hooks.json にコピー
+#    ※ hooks.json内のパスを実際のスクリプト配置場所に書き換えてください
+# 4. skills/ を ~/.codex/skills/ にコピー
+```
+
+## 前提条件
+
+Sprekaサーバーは **Codex CLIを起動する前に** 起動してください。
+
+```bash
+spreka server
+```
+
+## 提供するMCPツール
+
+| ツール | 説明 |
+|-------|------|
+| `speak` | テキストを音声で読み上げる |
+| `set_voice` | 声質・速度等を変更する |
+| `status` | サーバーの状態を返す |
+
+## Skillプリセット
+
+| Skill | 説明 |
+|-------|------|
+| `spreka-operator-ja` | 日本語オペレーター風の報告 |
+| `spreka-operator-en` | 英語オペレーター風の報告 |
+
+## 接続先の変更
+
+`codex/.mcp.json` のURLを変更してください。Hookスクリプトはこのファイルから自動読み取りします。
+
+## 自動登録されるHook
+
+| イベント | 動作 |
+|---------|------|
+| SessionStart | サーバーにsource登録 |
+| PreToolUse（speak時） | sourceを自動注入 |
