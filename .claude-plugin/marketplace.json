@@ -1,8 +1,15 @@
 {
-  "name": "spreka",
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "spreka-plugins",
+  "description": "Spreka - Real-time text-to-speech for AI coding agents",
+  "owner": {
+    "name": "spreka",
+    "email": "spreka@example.com"
+  },
   "plugins": [
     {
       "name": "spreka",
+      "description": "AIエージェントの出力をリアルタイム音声読み上げ。ターミナルをオペレーションセンターに。",
       "source": "./"
     }
   ]
