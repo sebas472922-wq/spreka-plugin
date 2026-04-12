@@ -5,6 +5,12 @@
   "author": {
     "name": "spreka"
   },
+  "userConfig": {
+    "server_url": {
+      "description": "SprekaサーバーのURL（例: http://localhost:9100）。デフォルト: http://localhost:9100",
+      "sensitive": false
+    }
+  },
   "skills": "./claude-code/skills/",
   "hooks": "./claude-code/hooks/hooks.json",
   "mcpServers": "./claude-code/.mcp.json"

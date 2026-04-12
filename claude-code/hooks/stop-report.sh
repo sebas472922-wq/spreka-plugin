@@ -19,19 +19,8 @@ fi
 SESSION_ID=$(echo "$INPUT" | jq -r '.session_id // ""')
 SOURCE="$(hostname)-${SESSION_ID:0:8}"
 
-# Resolve spreka server URL.
-# Priority: ~/.claude.json (user scope) > plugin .mcp.json > SPREKA_URL env > default
-SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
-PLUGIN_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
-USER_MCP_URL=$(jq -r '.mcpServers.spreka.url // ""' ~/.claude.json 2>/dev/null)
-PLUGIN_MCP_URL=$(jq -r '.mcpServers.spreka.url // ""' "$PLUGIN_ROOT/.mcp.json" 2>/dev/null)
-if [ -n "$USER_MCP_URL" ]; then
-  SPREKA_URL="${USER_MCP_URL%/mcp}"
-elif [ -n "$PLUGIN_MCP_URL" ]; then
-  SPREKA_URL="${PLUGIN_MCP_URL%/mcp}"
-else
-  SPREKA_URL="${SPREKA_URL:-http://localhost:9100}"
-fi
+# Resolve spreka server URL from plugin userConfig or fall back to default.
+SPREKA_URL="${CLAUDE_PLUGIN_OPTION_SERVER_URL:-http://localhost:9100}"
 
 # Send beep-only notification via MCP JSON-RPC (tools/call speak)
 JSON_PAYLOAD=$(jq -n --arg source "$SOURCE" '{
