@@ -39,11 +39,14 @@ if [ -n "$TRANSCRIPT_FILE" ] && [ -f "$TRANSCRIPT_FILE" ]; then
   LAST_MESSAGE=$($REVERSE_CMD "$TRANSCRIPT_FILE" | while IFS= read -r line; do
     TYPE=$(echo "$line" | jq -r '.type // ""' 2>/dev/null)
     if [ "$TYPE" = "assistant" ]; then
-      echo "$line" | jq -r '
+      TEXT=$(echo "$line" | jq -r '
         [.message.content[] | select(.type == "text") | .text] |
         join(" ") | .[0:200]
-      ' 2>/dev/null
-      break
+      ' 2>/dev/null)
+      if [ -n "$TEXT" ] && [ "$TEXT" != "null" ]; then
+        echo "$TEXT"
+        break
+      fi
     fi
   done)
 
