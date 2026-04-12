@@ -1,25 +1,65 @@
 # Spreka Plugin for Claude Code
 
-## インストール
+> **Status: 検証済**
 
-```bash
-# 1. マーケットプレイスを追加
-/plugin marketplace add sebas472922-wq/spreka-plugin
+## インストール手順
 
-# 2. プラグインをインストール
-/plugin install spreka@sebas472922-wq-spreka-plugin
-```
-
-## 前提条件
-
-Sprekaサーバーは **Claude Codeを起動する前に** 起動してください。
-Claude CodeはMCPサーバーへの接続を起動時に1回だけ試みます。
+### 1. Sprekaサーバーを起動
 
 ```bash
 spreka server
 ```
 
-サーバーが停止している場合、プラグインは自動的にスキップされ、通常の操作に影響はありません。
+> **重要**: Sprekaサーバーは **Claude Codeを起動する前に** 起動してください。
+> Claude CodeはMCPサーバーへの接続を起動時に1回だけ試みます。
+> サーバーが停止している場合、プラグインは自動的にスキップされ、通常の操作に影響はありません。
+
+### 2. マーケットプレイスを追加
+
+Claude Codeのプロンプトで以下を入力：
+
+```
+/plugin marketplace add sebas472922-wq/spreka-plugin
+```
+
+### 3. プラグインをインストール
+
+```
+/plugin install spreka@spreka-plugins
+```
+
+「Discover」タブから `spreka` を選択してインストールしてください。
+
+### 4. プラグインを有効化
+
+```
+/reload-plugins
+```
+
+以下が表示されれば成功です：
+```
+Reloaded: N plugins · 0 skills · N agents · 3 hooks · 1 plugin MCP server · ...
+```
+
+### 5. 接続先の変更（LAN / リモートの場合のみ）
+
+デフォルトは `http://localhost:9100` です。ローカルやSSH経由の場合は設定不要です。
+
+| 接続パターン | 設定 |
+|-------------|------|
+| ローカル | 設定不要 |
+| SSH経由 | `ssh -R 9100:localhost:9100 remote-server` でポートフォワーディング。設定不要 |
+| LAN / リモート | 下記コマンドで変更 |
+
+```bash
+claude mcp add --transport http -s user spreka http://<サーバーのアドレス>:9100/mcp
+```
+
+変更後はClaude Codeを再起動してください。
+
+### 6. 動作確認
+
+Claude Codeのプロンプトで何か作業を依頼すると、Skillの指示に従ってClaude自身がspeakを呼び、音声が再生されます。
 
 ## 提供するMCPツール
 
@@ -36,26 +76,16 @@ spreka server
 | `spreka-operator-ja` | 日本語オペレーター風の報告（VOICEVOX Nemo使用） |
 | `spreka-operator-en` | 英語オペレーター風の報告 |
 
-## 接続先の変更
-
-デフォルトは `http://localhost:9100` です。
-
-| 接続パターン | 設定 |
-|-------------|------|
-| ローカル | 設定不要 |
-| SSH経由 | `ssh -R 9100:localhost:9100 remote-server` でポートフォワーディング。設定不要 |
-| LAN / リモート | 下記コマンドで変更 |
-
-```bash
-claude mcp add --transport http -s user spreka http://192.168.x.x:9100/mcp
-```
-
-Hookスクリプトは `.mcp.json` からURLを自動読み取りするため、追加の設定は不要です。
-
 ## 自動登録されるHook
 
 | イベント | 動作 |
 |---------|------|
 | SessionStart | サーバー生存確認 + source登録 |
 | PreToolUse（speak時） | sourceを自動注入 |
-| Stop | ビープ通知 |
+| Stop | ビープ通知（MCP JSON-RPC経由） |
+
+## アンインストール
+
+```
+/plugin uninstall spreka@spreka-plugins
+```

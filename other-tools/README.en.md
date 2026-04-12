@@ -1,5 +1,7 @@
 # Spreka MCP Connection — Other Tools
 
+> **Status: Unverified** — Config examples are provided but have not been tested yet. They may contain errors.
+
 These tools don't have plugin/hook systems, but can connect to Spreka as an MCP server.
 The speak/set_voice/status tools will be available.
 

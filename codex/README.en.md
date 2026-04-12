@@ -1,5 +1,7 @@
 # Spreka for Codex CLI
 
+> **Status: Unverified** — Installation and operation have not been tested yet. Configuration may contain errors.
+
 ## Installation
 
 ```bash

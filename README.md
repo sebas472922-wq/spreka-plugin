@@ -7,12 +7,14 @@ Real-time text-to-speech plugin for AI coding agents.
 
 ## 対応エージェント / Supported Agents
 
-| Agent | Plugin/Extension | Hooks | MCP | Setup |
-|-------|:---:|:---:|:---:|-------|
-| Claude Code | ✅ | ✅ | ✅ | [日本語](claude-code/README.md) / [English](claude-code/README.en.md) |
-| Codex CLI | ✅ | ✅ | ✅ | [日本語](codex/README.md) / [English](codex/README.en.md) |
-| Gemini CLI | ✅ | ✅ | ✅ | [日本語](gemini/README.md) / [English](gemini/README.en.md) |
-| Cursor / Windsurf / Cline / Roo Code / Continue.dev | - | - | ✅ | [日本語](other-tools/README.md) / [English](other-tools/README.en.md) |
+| Agent | Plugin/Extension | Hooks | MCP | Status | Setup |
+|-------|:---:|:---:|:---:|:---:|-------|
+| Claude Code | ✅ | ✅ | ✅ | **検証済** | [日本語](claude-code/README.md) / [English](claude-code/README.en.md) |
+| Codex CLI | ✅ | ✅ | ✅ | 未検証 | [日本語](codex/README.md) / [English](codex/README.en.md) |
+| Gemini CLI | ✅ | ✅ | ✅ | 未検証 | [日本語](gemini/README.md) / [English](gemini/README.en.md) |
+| Cursor / Windsurf / Cline / Roo Code / Continue.dev | - | - | ✅ | 未検証 | [日本語](other-tools/README.md) / [English](other-tools/README.en.md) |
+
+> **注意**: 「未検証」のエージェントは設定ファイルを用意していますが、実際のインストール・動作確認はまだ行っていません。設定に誤りがある可能性があります。検証が完了したものから順次「検証済」に更新します。
 
 ## 必要な環境 / Prerequisites
 
@@ -37,4 +39,3 @@ spreka server
 Default: `http://localhost:9100`. See each agent's docs for details.
 
 ## Powered by VOICEVOX Nemo
-
