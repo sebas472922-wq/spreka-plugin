@@ -4,25 +4,35 @@
 
 ## インストール
 
-```bash
-# Extensionとしてインストール
-gemini extensions install https://github.com/sebas472922-wq/spreka-plugin
+### 方法A: Extensionとしてインストール
 
-# または手動セットアップ:
-# 1. ~/.gemini/settings.json にMCPサーバーを追加
-# {
-#   "mcpServers": {
-#     "spreka": {
-#       "httpUrl": "http://localhost:9100/mcp"
-#     }
-#   }
-# }
-#
-# 2. skills/ を ~/.gemini/skills/ にコピー
-# 3. hooks を settings.json に追加（下記参照）
+> **実行場所: ターミナル**
+
+```bash
+gemini extensions install https://github.com/sebas472922-wq/spreka-plugin
 ```
 
+### 方法B: 手動セットアップ
+
+> **実行場所: ターミナル / テキストエディタ**（Gemini CLIの外）
+
+1. `~/.gemini/settings.json` にMCPサーバーを追加:
+   ```json
+   {
+     "mcpServers": {
+       "spreka": {
+         "httpUrl": "http://localhost:9100/mcp"
+       }
+     }
+   }
+   ```
+
+2. `skills/` を `~/.gemini/skills/` にコピー
+3. hooksを `settings.json` に追加（下記「Hook設定」を参照）
+
 ## 前提条件
+
+> **実行場所: ターミナル**（Gemini CLIの外）
 
 Sprekaサーバーは **Gemini CLIを起動する前に** 起動してください。
 

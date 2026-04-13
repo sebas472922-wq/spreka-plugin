@@ -4,25 +4,36 @@
 
 ## インストール
 
-```bash
-# プラグインとしてインストール（プラグイン機能が有効な場合）
-/plugins install spreka
+### 方法A: プラグインとしてインストール
 
-# または手動セットアップ:
-# 1. config.toml でフック機能を有効化
-# [features]
-# codex_hooks = true
-#
-# 2. MCP接続を設定（config.toml）
-# [mcp_servers.spreka]
-# url = "http://localhost:9100/mcp"
-#
-# 3. hooks.json を ~/.codex/hooks.json にコピー
-#    ※ hooks.json内のパスを実際のスクリプト配置場所に書き換えてください
-# 4. skills/ を ~/.codex/skills/ にコピー
+> **実行場所: Codex CLIのプロンプト**（プラグイン機能が有効な場合）
+
+```
+/plugins install spreka
 ```
 
+### 方法B: 手動セットアップ
+
+> **実行場所: ターミナル / テキストエディタ**（Codex CLIの外）
+
+1. `~/.codex/config.toml` でフック機能を有効化:
+   ```toml
+   [features]
+   codex_hooks = true
+   ```
+
+2. 同じファイルにMCP接続を設定:
+   ```toml
+   [mcp_servers.spreka]
+   url = "http://localhost:9100/mcp"
+   ```
+
+3. `hooks.json` を `~/.codex/hooks.json` にコピー（パスを実際の配置場所に書き換えてください）
+4. `skills/` を `~/.codex/skills/` にコピー
+
 ## 前提条件
+
+> **実行場所: ターミナル**（Codex CLIの外）
 
 Sprekaサーバーは **Codex CLIを起動する前に** 起動してください。
 

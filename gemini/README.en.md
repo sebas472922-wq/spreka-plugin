@@ -4,25 +4,35 @@
 
 ## Installation
 
-```bash
-# Install as extension
-gemini extensions install https://github.com/sebas472922-wq/spreka-plugin
+### Option A: Install as Extension
 
-# Or manual setup:
-# 1. Add MCP server to ~/.gemini/settings.json
-# {
-#   "mcpServers": {
-#     "spreka": {
-#       "httpUrl": "http://localhost:9100/mcp"
-#     }
-#   }
-# }
-#
-# 2. Copy skills/ to ~/.gemini/skills/
-# 3. Add hooks to settings.json (see below)
+> **Run in: Terminal**
+
+```bash
+gemini extensions install https://github.com/sebas472922-wq/spreka-plugin
 ```
 
+### Option B: Manual Setup
+
+> **Run in: Terminal / text editor** (outside Gemini CLI)
+
+1. Add MCP server to `~/.gemini/settings.json`:
+   ```json
+   {
+     "mcpServers": {
+       "spreka": {
+         "httpUrl": "http://localhost:9100/mcp"
+       }
+     }
+   }
+   ```
+
+2. Copy `skills/` to `~/.gemini/skills/`
+3. Add hooks to `settings.json` (see "Hook Configuration" below)
+
 ## Prerequisites
+
+> **Run in: Terminal** (outside Gemini CLI)
 
 Start the Spreka server **before** launching Gemini CLI.
 

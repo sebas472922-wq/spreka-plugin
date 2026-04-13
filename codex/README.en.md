@@ -4,25 +4,36 @@
 
 ## Installation
 
-```bash
-# Install as plugin (if plugin feature is enabled)
-/plugins install spreka
+### Option A: Install as Plugin
 
-# Or manual setup:
-# 1. Enable hooks in config.toml
-# [features]
-# codex_hooks = true
-#
-# 2. Configure MCP in config.toml
-# [mcp_servers.spreka]
-# url = "http://localhost:9100/mcp"
-#
-# 3. Copy hooks.json to ~/.codex/hooks.json
-#    Note: Update paths in hooks.json to match your actual script locations
-# 4. Copy skills/ to ~/.codex/skills/
+> **Run in: Codex CLI prompt** (if plugin feature is enabled)
+
+```
+/plugins install spreka
 ```
 
+### Option B: Manual Setup
+
+> **Run in: Terminal / text editor** (outside Codex CLI)
+
+1. Enable hooks in `~/.codex/config.toml`:
+   ```toml
+   [features]
+   codex_hooks = true
+   ```
+
+2. Configure MCP in the same file:
+   ```toml
+   [mcp_servers.spreka]
+   url = "http://localhost:9100/mcp"
+   ```
+
+3. Copy `hooks.json` to `~/.codex/hooks.json` (update paths to match your actual script locations)
+4. Copy `skills/` to `~/.codex/skills/`
+
 ## Prerequisites
+
+> **Run in: Terminal** (outside Codex CLI)
 
 Start the Spreka server **before** launching Codex CLI.
 

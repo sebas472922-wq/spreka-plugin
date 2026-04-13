@@ -6,6 +6,8 @@
 
 ### 1. Start Spreka Server
 
+> **Run in: Terminal** (outside Claude Code)
+
 ```bash
 spreka server
 ```
@@ -16,13 +18,15 @@ spreka server
 
 ### 2. Add Marketplace
 
-In the Claude Code prompt:
+> **Run in: Claude Code prompt**
 
 ```
 /plugin marketplace add sebas472922-wq/spreka-plugin
 ```
 
 ### 3. Install Plugin
+
+> **Run in: Claude Code prompt**
 
 ```
 /plugin install spreka@spreka-plugins
@@ -32,30 +36,34 @@ Select `spreka` from the "Discover" tab to install.
 
 ### 4. Activate Plugin
 
+> **Run in: Claude Code prompt**
+
 ```
 /reload-plugins
 ```
 
-You should see:
+You should see output like this (numbers may vary by version):
 ```
-Reloaded: N plugins · 0 skills · N agents · 3 hooks · 1 plugin MCP server · ...
+Reloaded: N plugins · N skills · N agents · N hooks · 1 plugin MCP server · ...
 ```
 
 ### 5. Change Server Address (LAN / Remote only)
 
-Default is `http://localhost:9100`. No configuration needed for local or SSH setups.
+Default is `http://localhost:9100`. No configuration needed for local or SSH setups — skip to step 6.
 
 | Pattern | Setup |
 |---------|-------|
-| Local | No configuration needed |
-| SSH | Port forwarding: `ssh -R 9100:localhost:9100 remote-server`. No configuration needed |
+| Local | No configuration needed — skip to step 6 |
+| SSH | Port forwarding: `ssh -R 9100:localhost:9100 remote-server`. No configuration needed — skip to step 6 |
 | LAN / Remote | Update with the command below |
+
+> **Run in: Terminal** (outside Claude Code)
 
 ```bash
 claude mcp add --transport http -s user spreka http://<server-address>:9100/mcp
 ```
 
-Restart Claude Code after changing.
+Restart Claude Code after changing (the new settings take effect on restart).
 
 ### 6. Verify
 

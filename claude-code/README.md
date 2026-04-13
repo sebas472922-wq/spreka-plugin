@@ -6,6 +6,8 @@
 
 ### 1. Sprekaサーバーを起動
 
+> **実行場所: ターミナル**（Claude Codeの外）
+
 ```bash
 spreka server
 ```
@@ -16,13 +18,15 @@ spreka server
 
 ### 2. マーケットプレイスを追加
 
-Claude Codeのプロンプトで以下を入力：
+> **実行場所: Claude Codeのプロンプト**
 
 ```
 /plugin marketplace add sebas472922-wq/spreka-plugin
 ```
 
 ### 3. プラグインをインストール
+
+> **実行場所: Claude Codeのプロンプト**
 
 ```
 /plugin install spreka@spreka-plugins
@@ -32,30 +36,34 @@ Claude Codeのプロンプトで以下を入力：
 
 ### 4. プラグインを有効化
 
+> **実行場所: Claude Codeのプロンプト**
+
 ```
 /reload-plugins
 ```
 
-以下が表示されれば成功です：
+以下のような出力が表示されれば成功です（数値はバージョンにより異なります）：
 ```
-Reloaded: N plugins · 0 skills · N agents · 3 hooks · 1 plugin MCP server · ...
+Reloaded: N plugins · N skills · N agents · N hooks · 1 plugin MCP server · ...
 ```
 
 ### 5. 接続先の変更（LAN / リモートの場合のみ）
 
-デフォルトは `http://localhost:9100` です。ローカルやSSH経由の場合は設定不要です。
+デフォルトは `http://localhost:9100` です。ローカルやSSH経由の場合は設定不要で、手順6へ進んでください。
 
 | 接続パターン | 設定 |
 |-------------|------|
-| ローカル | 設定不要 |
-| SSH経由 | `ssh -R 9100:localhost:9100 remote-server` でポートフォワーディング。設定不要 |
+| ローカル | 設定不要 → 手順6へ |
+| SSH経由 | `ssh -R 9100:localhost:9100 remote-server` でポートフォワーディング。設定不要 → 手順6へ |
 | LAN / リモート | 下記コマンドで変更 |
+
+> **実行場所: ターミナル**（Claude Codeの外で実行してください）
 
 ```bash
 claude mcp add --transport http -s user spreka http://<サーバーのアドレス>:9100/mcp
 ```
 
-変更後はClaude Codeを再起動してください。
+変更後はClaude Codeを再起動してください（再起動時に設定が反映されます）。
 
 ### 6. 動作確認
 
