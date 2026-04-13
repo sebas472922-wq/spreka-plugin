@@ -24,8 +24,10 @@ if ! curl -s --max-time 2 "$SPREKA_URL/health" > /dev/null 2>&1; then
 fi
 
 # Register with spreka server that this source has a Stop hook.
-JSON_PAYLOAD=$(jq -n --arg source "$SOURCE" '{source: $source, has_stop_hook: true}')
-curl -s -X POST "$SPREKA_URL/register-hook" \
+# Note: pipe to curl -d @- instead of -d "$var" to avoid
+# unicode corruption on Windows (Git Bash / MSYS2).
+jq -n --arg source "$SOURCE" '{source: $source, has_stop_hook: true}' \
+  | curl -s -X POST "$SPREKA_URL/register-hook" \
   -H 'Content-Type: application/json' \
-  -d "$JSON_PAYLOAD" \
+  -d @- \
   > /dev/null 2>&1

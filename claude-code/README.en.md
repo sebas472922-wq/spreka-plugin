@@ -92,6 +92,44 @@ Ask Claude Code to perform a task. Claude will call speak according to the Skill
 | PreToolUse (speak) | Auto-inject source |
 | Stop | Beep + last message read-aloud (via MCP JSON-RPC) |
 
+## Troubleshooting
+
+### Windows: Hooks Not Auto-registered
+
+On Windows, plugin hooks (SessionStart, PreToolUse, Stop) may not be automatically registered.
+If MCP tools (speak, status, set_voice) work but hooks do not, add the following manual configuration as a workaround.
+
+Add to `~/.claude/settings.json`:
+
+```json
+{
+  "hooks": {
+    "SessionStart": [{
+      "hooks": [{
+        "type": "command",
+        "command": "bash ~/.claude/plugins/marketplaces/spreka-plugins/claude-code/hooks/session-start.sh"
+      }]
+    }],
+    "PreToolUse": [{
+      "matcher": "mcp__spreka__speak",
+      "hooks": [{
+        "type": "command",
+        "command": "bash ~/.claude/plugins/marketplaces/spreka-plugins/claude-code/hooks/pre-speak.sh"
+      }]
+    }],
+    "Stop": [{
+      "hooks": [{
+        "type": "command",
+        "command": "bash ~/.claude/plugins/marketplaces/spreka-plugins/claude-code/hooks/stop-report.sh",
+        "timeout": 15
+      }]
+    }]
+  }
+}
+```
+
+Restart Claude Code after adding the configuration.
+
 ## Uninstall
 
 ```

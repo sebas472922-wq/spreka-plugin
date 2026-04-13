@@ -26,8 +26,10 @@ SPREKA_URL="${SPREKA_URL:-http://localhost:9100}"
 # Extract last assistant message from stdin (max 200 chars)
 LAST_MESSAGE=$(echo "$INPUT" | jq -r '.last_assistant_message // "" | .[0:200]')
 
-# Send beep + final speak via MCP JSON-RPC
-JSON_PAYLOAD=$(jq -n --arg text "${LAST_MESSAGE:-}" --arg source "$SOURCE" '{
+# Send beep + final speak via MCP JSON-RPC.
+# Note: pipe to curl -d @- instead of -d "$var" to avoid
+# unicode corruption on Windows (Git Bash / MSYS2).
+jq -n --arg text "${LAST_MESSAGE:-}" --arg source "$SOURCE" '{
   jsonrpc: "2.0",
   method: "tools/call",
   id: 1,
@@ -35,8 +37,7 @@ JSON_PAYLOAD=$(jq -n --arg text "${LAST_MESSAGE:-}" --arg source "$SOURCE" '{
     name: "speak",
     arguments: {text: $text, source: $source, beep: true, final: true}
   }
-}')
-curl -s -X POST "$SPREKA_URL/mcp" \
+}' | curl -s -X POST "$SPREKA_URL/mcp" \
   -H 'Content-Type: application/json' \
-  -d "$JSON_PAYLOAD" \
+  -d @- \
   > /dev/null 2>&1
