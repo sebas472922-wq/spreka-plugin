@@ -3,7 +3,7 @@
 > **Status: Unverified** — Config examples are provided but have not been tested yet. They may contain errors.
 
 These tools don't have plugin/hook systems, but can connect to Spreka as an MCP server.
-The speak/set_voice/status tools will be available.
+The speak/status tools will be available.
 
 ## Setup
 
@@ -28,4 +28,4 @@ Update the URL (default: `http://localhost:9100/mcp`) in each config file.
 
 - No hook support — source auto-injection is not available
 - No Skill support — tools must be called manually
-- Core TTS features (speak/set_voice/status) work with all tools
+- Core TTS features (speak/status) work with all tools

@@ -45,7 +45,6 @@ spreka server
 | Tool | Description |
 |------|-------------|
 | `speak` | Speak text aloud |
-| `set_voice` | Change voice, speed, pitch, etc. |
 | `status` | Return server status |
 
 > **Note**: Tool names in Gemini CLI use single underscore: `mcp_spreka_speak`.

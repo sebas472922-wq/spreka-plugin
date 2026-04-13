@@ -8,7 +8,7 @@ description: Report via mcp_spreka_speak at task start, completion, and warning 
 ## Server Connection Check (Required)
 Before calling speak for the first time, always call `mcp_spreka_status` once to verify server availability.
 - **Success**: Proceed to use speak normally
-- **Failure (timeout/error)**: Do not call speak or set_voice for the rest of this session. Continue work silently
+- **Failure (timeout/error)**: Do not call speak for the rest of this session. Continue work silently
 
 If speak fails mid-session (timeout/connection error), stop calling speak for the remainder of the session.
 

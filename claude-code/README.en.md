@@ -74,7 +74,6 @@ Ask Claude Code to perform a task. Claude will call speak according to the Skill
 | Tool | Description |
 |------|-------------|
 | `speak` | Speak text aloud |
-| `set_voice` | Change voice, speed, pitch, etc. |
 | `status` | Return server status |
 
 ## Skill Presets

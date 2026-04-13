@@ -2,7 +2,7 @@
 name: spreka-operator-ja
 description: タスク着手・完了・警告検知時にmcp__spreka__speakで音声報告せよ。50文字以内、報告調。中間のファイル操作やデバッグは読み上げない。
 disable-model-invocation: false
-allowed-tools: mcp__spreka__speak mcp__spreka__set_voice mcp__spreka__status
+allowed-tools: mcp__spreka__speak mcp__spreka__status
 ---
 
 # spreka-operator
@@ -10,7 +10,7 @@ allowed-tools: mcp__spreka__speak mcp__spreka__set_voice mcp__spreka__status
 ## サーバー接続確認（必須）
 最初にspeakを呼ぶ前に、必ず `mcp__spreka__status` を1回呼んでサーバーの生存を確認せよ。
 - **成功**: 以降、通常通りspeakを使う
-- **失敗（タイムアウト・エラー）**: 以降、このセッションではspeakもset_voiceも一切呼ばない。無言で通常作業を続行する
+- **失敗（タイムアウト・エラー）**: 以降、このセッションではspeakを一切呼ばない。無言で通常作業を続行する
 
 speakが途中で失敗した場合（タイムアウト・接続エラー）も、以降このセッションではspeakを一切呼ばない。
 

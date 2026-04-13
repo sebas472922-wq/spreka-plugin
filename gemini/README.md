@@ -45,7 +45,6 @@ spreka server
 | ツール | 説明 |
 |-------|------|
 | `speak` | テキストを音声で読み上げる |
-| `set_voice` | 声質・速度等を変更する |
 | `status` | サーバーの状態を返す |
 
 > **注意**: Gemini CLIではツール名が `mcp_spreka_speak` です（アンダースコア1つ）。
