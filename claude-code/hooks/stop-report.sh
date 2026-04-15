@@ -23,8 +23,9 @@ USER_MCP_URL=$(jq -r '.mcpServers.spreka.url // ""' ~/.claude.json 2>/dev/null)
 SPREKA_URL="${USER_MCP_URL:+${USER_MCP_URL%/mcp}}"
 SPREKA_URL="${SPREKA_URL:-http://localhost:9100}"
 
-# Extract last assistant message from stdin (max 200 chars)
-LAST_MESSAGE=$(echo "$INPUT" | jq -r '.last_assistant_message // "" | .[0:200]')
+# Extract last assistant message from stdin (no client-side truncation;
+# server-side text.max_length_mcp handles the upper bound).
+LAST_MESSAGE=$(echo "$INPUT" | jq -r '.last_assistant_message // ""')
 
 # Send beep + final speak via MCP JSON-RPC.
 # Note: pipe to curl -d @- instead of -d "$var" to avoid
