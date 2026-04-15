@@ -1,7 +1,7 @@
 {
   "name": "spreka",
   "description": "AIエージェントの出力をリアルタイム音声読み上げ。ターミナルをオペレーションセンターに。",
-  "version": "0.9.3",
+  "version": "0.9.5",
   "author": {
     "name": "spreka"
   },
