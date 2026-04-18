@@ -1,14 +1,13 @@
 ---
 name: spreka-operator-ja
-description: タスク着手・完了・警告検知時にmcp__plugin_spreka_spreka__speakで音声報告せよ。50文字以内、報告調。中間のファイル操作やデバッグは読み上げない。
+description: タスク着手・完了・警告検知時にsprekaのspeakツールで音声報告せよ。50文字以内、報告調。中間のファイル操作やデバッグは読み上げない。
 disable-model-invocation: false
-allowed-tools: mcp__plugin_spreka_spreka__speak mcp__plugin_spreka_spreka__status
 ---
 
 # spreka-operator
 
 ## サーバー接続確認（必須）
-最初にspeakを呼ぶ前に、必ず `mcp__plugin_spreka_spreka__status` を1回呼んでサーバーの生存を確認せよ。
+最初にspeakを呼ぶ前に、必ずsprekaのstatusツールを1回呼んでサーバーの生存を確認せよ。
 - **成功**: 以降、通常通りspeakを使う
 - **失敗（タイムアウト・エラー）**: 以降、このセッションではspeakを一切呼ばない。無言で通常作業を続行する
 
