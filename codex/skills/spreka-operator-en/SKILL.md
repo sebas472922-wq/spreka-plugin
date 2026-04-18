@@ -1,14 +1,14 @@
 ---
 name: spreka-operator-en
-description: Report via mcp__spreka__speak at task start, completion, and warning detection. Keep it under 50 characters, concise operator tone. Do not read out intermediate file operations or debugging.
+description: Report via mcp__plugin_spreka_spreka__speak at task start, completion, and warning detection. Keep it under 50 characters, concise operator tone. Do not read out intermediate file operations or debugging.
 disable-model-invocation: false
-allowed-tools: mcp__spreka__speak mcp__spreka__status
+allowed-tools: mcp__plugin_spreka_spreka__speak mcp__plugin_spreka_spreka__status
 ---
 
 # spreka-operator-en
 
 ## Server Connection Check (Required)
-Before calling speak for the first time, always call `mcp__spreka__status` once to verify server availability.
+Before calling speak for the first time, always call `mcp__plugin_spreka_spreka__status` once to verify server availability.
 - **Success**: Proceed to use speak normally
 - **Failure (timeout/error)**: Do not call speak for the rest of this session. Continue work silently
 

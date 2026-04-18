@@ -12,7 +12,7 @@
     ],
     "PreToolUse": [
       {
-        "matcher": "mcp__spreka__speak",
+        "matcher": "mcp__plugin_spreka_spreka__speak",
         "hooks": [
           {
             "type": "command",
