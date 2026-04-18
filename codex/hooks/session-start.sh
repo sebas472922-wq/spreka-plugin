@@ -17,7 +17,7 @@ MCP_URL=$(jq -r '.mcpServers.spreka.url // ""' "$PLUGIN_ROOT/.mcp.json" 2>/dev/n
 if [ -n "$MCP_URL" ]; then
   SPREKA_URL="${MCP_URL%/mcp}"
 else
-  SPREKA_URL="${SPREKA_URL:-http://localhost:9100}"
+  SPREKA_URL="${SPREKA_URL:-https://spreka.se-es.net}"
 fi
 
 # Health check: if unreachable, skip silently.

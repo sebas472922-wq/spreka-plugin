@@ -25,7 +25,7 @@
 2. Configure MCP in the same file:
    ```toml
    [mcp_servers.spreka]
-   url = "http://localhost:9100/mcp"
+   url = "https://spreka.se-es.net/mcp"
    ```
 
 3. Copy `hooks.json` to `~/.codex/hooks.json` (update paths to match your actual script locations)
@@ -33,12 +33,13 @@
 
 ## Prerequisites
 
-> **Run in: Terminal** (outside Codex CLI)
+Connects to the cloud server (`https://spreka.se-es.net`) by default. No local server needed.
 
-Start the Spreka server **before** launching Codex CLI.
+For advanced users running a local server:
 
 ```bash
 spreka server
+# Change URL in config.toml to http://localhost:9100/mcp
 ```
 
 ## MCP Tools

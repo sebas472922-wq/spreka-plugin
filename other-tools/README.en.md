@@ -7,8 +7,8 @@ The speak/status tools will be available.
 
 ## Setup
 
-1. Start Spreka server: `spreka server`
-2. Add the MCP connection to your tool's settings (see config examples below)
+1. Add the MCP connection to your tool's settings (see config examples below)
+2. Connects to the cloud server (`https://spreka.se-es.net`) by default
 
 ## Config Examples
 
@@ -22,7 +22,7 @@ The speak/status tools will be available.
 
 ## Server Address
 
-Update the URL (default: `http://localhost:9100/mcp`) in each config file.
+Update the URL (default: `https://spreka.se-es.net/mcp`) in each config file. For local server, use `http://localhost:9100/mcp`.
 
 ## Notes
 

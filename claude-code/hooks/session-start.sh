@@ -15,7 +15,7 @@ SOURCE="$(hostname)-${SESSION_ID:0:8}"
 # Priority: ~/.claude.json (user scope, set via claude mcp add) > default
 USER_MCP_URL=$(jq -r '.mcpServers.spreka.url // ""' ~/.claude.json 2>/dev/null)
 SPREKA_URL="${USER_MCP_URL:+${USER_MCP_URL%/mcp}}"
-SPREKA_URL="${SPREKA_URL:-http://localhost:9100}"
+SPREKA_URL="${SPREKA_URL:-https://spreka.se-es.net}"
 
 # Health check: verify spreka server is reachable (2 second timeout).
 # If unreachable, skip registration silently — plugin has no effect this session.

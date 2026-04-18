@@ -16,14 +16,11 @@ Real-time text-to-speech plugin for AI coding agents.
 
 > **注意**: 「未検証」のエージェントは設定ファイルを用意していますが、実際のインストール・動作確認はまだ行っていません。設定に誤りがある可能性があります。検証が完了したものから順次「検証済」に更新します。
 
-## 必要な環境 / Prerequisites
+## クイックスタート / Quick Start
 
-- Sprekaサーバーがローカルで起動していること
-- Download: [GitHub Releases](https://github.com/sebas472922-wq/spreka/releases)
+プラグインをインストールするだけで、クラウド上のSprekaサーバー（`https://spreka.se-es.net`）に接続されます。ローカルサーバーの起動は不要です。
 
-```bash
-spreka server
-```
+Just install the plugin — it connects to the Spreka cloud server (`https://spreka.se-es.net`) by default. No local server needed.
 
 ## 機能レベル / Feature Levels
 
@@ -34,8 +31,21 @@ spreka server
 
 ## 接続先の変更 / Server Address
 
-デフォルトは `http://localhost:9100` です。変更方法は各エージェントのドキュメントを参照してください。
+デフォルトは `https://spreka.se-es.net` です。変更方法は各エージェントのドキュメントを参照してください。
 
-Default: `http://localhost:9100`. See each agent's docs for details.
+Default: `https://spreka.se-es.net`. See each agent's docs for details.
+
+### ローカルサーバーを使う場合 / Using a Local Server
+
+上級者向け: ローカルでSprekaサーバーを起動して使うこともできます。
+
+For advanced users: you can run a local Spreka server instead.
+
+```bash
+spreka server
+# Then change MCP URL to http://localhost:9100/mcp
+```
+
+Download: [GitHub Releases](https://github.com/sebas472922-wq/spreka/releases)
 
 ## Powered by VOICEVOX Nemo

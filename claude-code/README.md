@@ -4,19 +4,7 @@
 
 ## インストール手順
 
-### 1. Sprekaサーバーを起動
-
-> **実行場所: ターミナル**（Claude Codeの外）
-
-```bash
-spreka server
-```
-
-> **重要**: Sprekaサーバーは **Claude Codeを起動する前に** 起動してください。
-> Claude CodeはMCPサーバーへの接続を起動時に1回だけ試みます。
-> サーバーが停止している場合、プラグインは自動的にスキップされ、通常の操作に影響はありません。
-
-### 2. マーケットプレイスを追加
+### 1. マーケットプレイスを追加
 
 > **実行場所: Claude Codeのプロンプト**
 
@@ -24,7 +12,7 @@ spreka server
 /plugin marketplace add sebas472922-wq/spreka-plugin
 ```
 
-### 3. プラグインをインストール
+### 2. プラグインをインストール
 
 > **実行場所: Claude Codeのプロンプト**
 
@@ -34,7 +22,7 @@ spreka server
 
 「Discover」タブから `spreka` を選択してインストールしてください。
 
-### 4. プラグインを有効化
+### 3. プラグインを有効化
 
 > **実行場所: Claude Codeのプロンプト**
 
@@ -47,27 +35,29 @@ spreka server
 Reloaded: N plugins · N skills · N agents · N hooks · 1 plugin MCP server · ...
 ```
 
-### 5. 接続先の変更（LAN / リモートの場合のみ）
+### 4. 動作確認
 
-デフォルトは `http://localhost:9100` です。ローカルやSSH経由の場合は設定不要で、手順6へ進んでください。
+Claude Codeのプロンプトで何か作業を依頼すると、Skillの指示に従ってClaude自身がspeakを呼び、音声が再生されます。
+
+音声を聴くには、ブラウザで https://spreka.se-es.net にアクセスしてログインしてください。
+
+## 接続先の変更（上級者向け）
+
+デフォルトはクラウドサーバー（`https://spreka.se-es.net`）です。ローカルサーバーを使う場合のみ変更が必要です。
 
 | 接続パターン | 設定 |
 |-------------|------|
-| ローカル | 設定不要 → 手順6へ |
-| SSH経由 | `ssh -R 9100:localhost:9100 remote-server` でポートフォワーディング。設定不要 → 手順6へ |
-| LAN / リモート | 下記コマンドで変更 |
+| クラウド（デフォルト） | 設定不要 |
+| ローカルサーバー | 下記コマンドで変更 |
+| SSH経由 | `ssh -R 9100:localhost:9100 remote-server` でポートフォワーディング後、下記コマンドで変更 |
 
 > **実行場所: ターミナル**（Claude Codeの外で実行してください）
 
 ```bash
-claude mcp add --transport http -s user spreka http://<サーバーのアドレス>:9100/mcp
+claude mcp add --transport http -s user spreka http://localhost:9100/mcp
 ```
 
 変更後はClaude Codeを再起動してください（再起動時に設定が反映されます）。
-
-### 6. 動作確認
-
-Claude Codeのプロンプトで何か作業を依頼すると、Skillの指示に従ってClaude自身がspeakを呼び、音声が再生されます。
 
 ## 提供するMCPツール
 

@@ -21,7 +21,7 @@ gemini extensions install https://github.com/sebas472922-wq/spreka-plugin
    {
      "mcpServers": {
        "spreka": {
-         "httpUrl": "http://localhost:9100/mcp"
+         "httpUrl": "https://spreka.se-es.net/mcp"
        }
      }
    }
@@ -32,12 +32,13 @@ gemini extensions install https://github.com/sebas472922-wq/spreka-plugin
 
 ## 前提条件
 
-> **実行場所: ターミナル**（Gemini CLIの外）
+デフォルトでクラウドサーバー（`https://spreka.se-es.net`）に接続されます。ローカルサーバーの起動は不要です。
 
-Sprekaサーバーは **Gemini CLIを起動する前に** 起動してください。
+ローカルサーバーを使う場合（上級者向け）:
 
 ```bash
 spreka server
+# gemini-extension.jsonのhttpUrlを http://localhost:9100/mcp に変更
 ```
 
 ## 提供するMCPツール

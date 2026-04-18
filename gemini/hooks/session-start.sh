@@ -17,7 +17,7 @@ MCP_URL=$(jq -r '.mcpServers.spreka.httpUrl // ""' "$REPO_ROOT/gemini-extension.
 if [ -n "$MCP_URL" ]; then
   SPREKA_URL="${MCP_URL%/mcp}"
 else
-  SPREKA_URL="${SPREKA_URL:-http://localhost:9100}"
+  SPREKA_URL="${SPREKA_URL:-https://spreka.se-es.net}"
 fi
 
 # Health check: if unreachable, skip silently.

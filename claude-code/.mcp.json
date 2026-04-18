@@ -2,7 +2,7 @@
   "mcpServers": {
     "spreka": {
       "type": "http",
-      "url": "http://localhost:9100/mcp"
+      "url": "https://spreka.se-es.net/mcp"
     }
   }
 }

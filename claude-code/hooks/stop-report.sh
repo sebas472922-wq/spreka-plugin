@@ -21,7 +21,7 @@ SOURCE="$(hostname)-${SESSION_ID:0:8}"
 # Resolve spreka server URL.
 USER_MCP_URL=$(jq -r '.mcpServers.spreka.url // ""' ~/.claude.json 2>/dev/null)
 SPREKA_URL="${USER_MCP_URL:+${USER_MCP_URL%/mcp}}"
-SPREKA_URL="${SPREKA_URL:-http://localhost:9100}"
+SPREKA_URL="${SPREKA_URL:-https://spreka.se-es.net}"
 
 # Extract last assistant message from stdin (no client-side truncation;
 # server-side text.max_length_mcp handles the upper bound).
