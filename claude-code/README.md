@@ -87,6 +87,7 @@ claude mcp add --transport http -s user spreka http://localhost:9100/mcp
 
 ```
 /plugin marketplace update spreka-plugins
+/plugin update spreka@spreka-plugins
 /reload-plugins
 ```
 

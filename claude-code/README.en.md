@@ -87,6 +87,7 @@ Restart Claude Code after changing (the new settings take effect on restart).
 
 ```
 /plugin marketplace update spreka-plugins
+/plugin update spreka@spreka-plugins
 /reload-plugins
 ```
 
