@@ -83,19 +83,22 @@ Restart Claude Code after changing (the new settings take effect on restart).
 
 ## Updating the Plugin
 
+Enable auto-update for automatic updates on Claude Code startup (recommended):
+
+> **Run in: Claude Code prompt**
+>
+> `/plugin` → "Marketplaces" tab → select `spreka-plugins` → "Enable auto-update"
+
+To update manually:
+
 > **Run in: Claude Code prompt**
 
 ```
 /plugin marketplace update spreka-plugins
-/plugin update spreka@spreka-plugins
 /reload-plugins
 ```
 
-To enable auto-update:
-
-> `/plugin` → "Marketplaces" tab → select `spreka-plugins` → "Enable auto-update"
-
-Third-party marketplaces have auto-update disabled by default. Once enabled, plugins are updated automatically at startup.
+Third-party marketplaces have auto-update disabled by default.
 
 ## Uninstall
 

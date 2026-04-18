@@ -83,19 +83,22 @@ claude mcp add --transport http -s user spreka http://localhost:9100/mcp
 
 ## プラグインの更新
 
+自動更新を有効にすると、Claude Code起動時に自動で最新版に更新されます（推奨）:
+
+> **実行場所: Claude Codeのプロンプト**
+>
+> `/plugin` → 「Marketplaces」タブ → `spreka-plugins` を選択 → 「Enable auto-update」
+
+手動で更新する場合:
+
 > **実行場所: Claude Codeのプロンプト**
 
 ```
 /plugin marketplace update spreka-plugins
-/plugin update spreka@spreka-plugins
 /reload-plugins
 ```
 
-自動更新を有効にする場合:
-
-> `/plugin` → 「Marketplaces」タブ → `spreka-plugins` を選択 → 「Enable auto-update」
-
-サードパーティマーケットプレイスはデフォルトで自動更新が無効です。有効にすると起動時に自動更新されます。
+サードパーティマーケットプレイスはデフォルトで自動更新が無効です。
 
 ## アンインストール
 
