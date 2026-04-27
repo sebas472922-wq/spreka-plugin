@@ -35,7 +35,17 @@ You should see output like this (numbers may vary by version):
 Reloaded: N plugins · N skills · N agents · N hooks · 1 plugin MCP server · ...
 ```
 
-### 4. Verify
+### 4. Authentication (first time only)
+
+When connecting to the cloud server, GitHub authentication is required on first use.
+
+1. After installing the plugin, a browser window will open when Claude Code first calls `speak`
+2. Authorize on GitHub (just click "Authorize")
+3. After authentication, the connection is established automatically
+
+> Authentication is not required when using a local server (`localhost`).
+
+### 5. Verify
 
 Ask Claude Code to perform a task. Claude will call speak according to the Skill instructions, and you should hear audio.
 

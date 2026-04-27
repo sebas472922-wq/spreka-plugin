@@ -35,7 +35,17 @@
 Reloaded: N plugins · N skills · N agents · N hooks · 1 plugin MCP server · ...
 ```
 
-### 4. 動作確認
+### 4. 認証（初回のみ）
+
+クラウドサーバーに接続する場合、初回のみ GitHub 認証が必要です。
+
+1. プラグインインストール後、Claude Code が最初に `speak` を呼ぶとブラウザが開きます
+2. GitHub で認可してください（「Authorize」ボタンを押すだけ）
+3. 認証完了後、自動的に接続されます
+
+> ローカルサーバー（`localhost`）を使う場合は認証不要です。
+
+### 5. 動作確認
 
 Claude Codeのプロンプトで何か作業を依頼すると、Skillの指示に従ってClaude自身がspeakを呼び、音声が再生されます。
 
